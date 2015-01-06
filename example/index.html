@@ -11,26 +11,34 @@
     <div id="log"></div>
 
     <script src="./jquery-2.1.1.min.js"></script>
-    <script src="../rtc-scamp.bundle.js"></script>
+    <script src="../build/rtc-scamp.bundle.debug.js"></script>
     <script>
       var Network = require('rtc-scamp');
       var n = new Network(Math.floor(Math.random()*1000));
-      console.log("n = ",n);
       var membership = n._membership;
       
       $("#offer").click(function(){membership.launch()});
       $("#join").click(function(){
-      var message = JSON.parse($("#textID").val());
-      membership.answer(message);
+        var message = JSON.parse($("#textID").val());
+        membership.answer(message);
       });
       $("#handshake").click(function(){
-      var message = JSON.parse($("#textID").val());
-      membership.handshake(message);
+        var message = JSON.parse($("#textID").val());
+        membership.handshake(message);
       });
 
-      setInterval( function(){
-       n.broadcast("hello my name is "+ n._broadcastDefinition.ivv.local.e);
-      }, Math.floor(Math.random()*5000)+15000 );
+      var eventLoop = null;
+      membership.on("statechange", function(state){
+        if (state==="connect"){
+          eventLoop = setInterval( function(){
+            n.broadcast("hello my name is "+
+            n._broadcastDefinition.ivv.local.e);
+          }, Math.floor(Math.random()*5000)+15000 );
+        };
+        if (state==="disconnect"){
+          clearInterval(eventLoop);
+        };
+      });
 
 //      setInterval( function(){
 //      var rn = Math.floor(Math.random()*p.partialView.length());
