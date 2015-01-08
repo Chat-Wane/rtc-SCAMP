@@ -1,0 +1,11 @@
+{
+    "name": "rtc-scamp",
+    "version": "0.0.x",
+    "main": "build/rtc-scamp.bundle.js",
+    "ignore": [
+	"lib",
+	"package.json",
+	"example"
+    ]
+}
+    

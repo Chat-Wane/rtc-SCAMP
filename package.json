@@ -19,12 +19,10 @@
 	"build": "browserify -r ./lib/network.js:rtc-scamp | uglifyjs > build/rtc-scamp.bundle.js"
     },
     "dependencies": {
-	"ivv-broadcast-definition": "0.0.x",
 	"rtc-scamp-mbr": "0.0.x",
 	"p2pnetwork": "0.0.x"
     },
     "bundledDependencies": [
-	"ivv-broadcast-definition",
 	"rtc-scamp-mbr",
 	"p2pnetwork"
     ],
