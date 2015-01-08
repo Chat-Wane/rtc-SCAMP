@@ -25,9 +25,11 @@ Or using bower: ```$ bower install rtc-scamp```
 ## Usage
 
 This module creates a network which implements the
-(p2pnetwork API)[https://github.com/justayak/network]. It uses (rtc-scamp-mbr)[http://github.com/chat-wane/rtc-scamp-mbr] for the membership part, i.e., how
-a peer can join the network. It uses simple-broadcast-definition for the
-epidemic dissemination of messages.
+[p2pnetwork API](https://github.com/justayak/network). It uses
+[rtc-scamp-mbr](http://github.com/chat-wane/rtc-scamp-mbr) for the membership
+part, i.e., how a peer can join the network. It uses
+simple-broadcast-definition for the epidemic dissemination of messages which
+collects the unique identifier of each message so they are broadcast only once.
 
 ## Example
 
