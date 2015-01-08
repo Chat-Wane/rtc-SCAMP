@@ -20,10 +20,12 @@
     },
     "dependencies": {
 	"rtc-scamp-mbr": "0.0.x",
+	"primitive-broadcast-definition": "0.0.x",
 	"p2pnetwork": "0.0.x"
     },
     "bundledDependencies": [
 	"rtc-scamp-mbr",
+	"primitive-broadcast-definition",
 	"p2pnetwork"
     ],
     "license": "MIT",
