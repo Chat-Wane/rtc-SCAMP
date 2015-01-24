@@ -6,7 +6,7 @@
     "main": "./lib/network.js",
     "repository": {
 	"type": "git",
-	"url": "https://github.com/chat-wane/SCAMP-rtc.git"
+	"url": "https://github.com/chat-wane/rtc-SCAMP.git"
     },
     "keywords": [
 	"gossip",

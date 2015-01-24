@@ -24,24 +24,25 @@ Or using bower: ```$ bower install rtc-scamp```
 
 ## Usage
 
-This module creates a network which implements the
-[p2pnetwork API](https://github.com/justayak/network). It uses
+This module creates a network which implements the [p2pnetwork
+API](https://github.com/justayak/network). It uses
 [rtc-scamp-mbr](http://github.com/chat-wane/rtc-scamp-mbr) for the membership
 part, i.e., how a peer can join the network. It uses
-simple-broadcast-definition for the epidemic dissemination of messages which
-collects the unique identifier of each message so they are broadcast only once.
+[simple-broadcast-definition](https://github.com/Chat-Wane/PrimitiveBroadcastDefinition.git)
+for the epidemic dissemination of messages which collects the unique identifier
+of each message so they are broadcast only once.
 
 ## Example
 
-There is a small example in the eponymous folder. To start it, follow the
-steps:
+The example is hosted [here](http://chat-wane.github.io/rtc-SCAMP/). The code
+can be found on the
+[gh-branch](https://github.com/Chat-Wane/rtc-SCAMP/tree/gh-pages) of this
+project. To use it, follow the steps:
 <ol>
-  <li>Download or clone the project</li>
-  <li>Open the index.html file with any WebRTC compatible web
-  browser (e.g. Chrome)</li>
+  <li>Open the link with any WebRTC compatible web browser (e.g. Chrome)</li>
   <li>Click on "1. Make offer". 3 seconds later, a string appears in the
   text area. Copy the string.</li>
-  <li>Open a new tab with the same html file and paste the string inside the
+  <li>Open a new tab with the same link and paste the string inside the
   empty textarea.</li>
   <li>Click on "2. Accept offer". 3 seconds later, the string in the text area
   changes. Copy the string.</li>
