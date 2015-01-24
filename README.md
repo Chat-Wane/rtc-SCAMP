@@ -16,7 +16,7 @@ ease the initialisation phase of the membership. Thus, this project aims to
 fill this gap. Such implementation would allow building distributed network
 by only manually sharing a piece of data (e.g. by mail).
 
-## Installation (TODO)
+## Installation
 
 You can get the module using the node packet manager: ``` $ npm install rtc-scamp```
 
