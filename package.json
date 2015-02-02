@@ -1,6 +1,6 @@
 {
     "name": "rtc-scamp",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "Chat-Wane <grumpy.chat.wane@gmail.com>",
     "description": "Gossip-based dissemination protocol using the SCAMP membership management that automatically scales with the global size of the network without global knowledges.",
     "main": "./lib/network.js",
@@ -20,12 +20,12 @@
     },
     "dependencies": {
 	"rtc-scamp-mbr": "0.0.x",
-	"primitive-broadcast-definition": "0.0.x",
-	"p2pnetwork": "0.0.x"
+	"bounded-broadcast-definition": "0.0.x",
+	"p2pnetwork": "0.1.x"
     },
     "bundledDependencies": [
 	"rtc-scamp-mbr",
-	"primitive-broadcast-definition",
+	"bounded-broadcast-definition",
 	"p2pnetwork"
     ],
     "license": "MIT",
