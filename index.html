@@ -1,0 +1,68 @@
+<html>
+  <head> <title>rtc-SCAMP</title> </head>
+  <body>
+    <textarea rows="5" cols="80" id="textID"></textarea> <br/>
+    <button type="button" id="offer">1. Make offer</button>
+    <button type="button" id="join">2. Accept offer</button>
+    <button type="button" id="handshake">3. Confirm handshake</button>
+    <button type="button" id="disconnect">Disconnect</button>
+    <br/>  <!-- ugly but whatever, just an example -->
+    <br/>
+    <br/>
+    <div id="log">Disconnected<br/></div>
+
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script src="/build/rtc-scamp.bundle.debug.js"></script>
+    <script>
+      var Network = require('rtc-scamp');
+      var n = new Network(Math.floor(Math.random()*1000));
+      var membership = n._membership;
+      var eventLoop;
+      
+      membership.on("statechange", function(state){
+        switch (state){
+        case "connect":
+          $("#log").html($("#log").html() + "Connected<br/>");
+          eventLoop = setInterval( function(){
+            n.broadcast("hello my name is "+ membership.uid);
+          }, Math.floor(Math.random()*5000)+15000 );
+          break;
+        case "partial":
+          $("#log").html($("#log").html() + "Partially connected<br/>");
+          break;
+        case "disconnect":
+          $("#log").html($("#log").html() + "Disconnected<br/>");
+          clearInterval(eventLoop);
+          break;
+        };
+      });
+
+      $("#disconnect").click(function(){
+        membership.disconnect();
+      });
+      
+      $("#offer").click(function(){membership.launch()});
+      $("#join").click(function(){
+        var message = JSON.parse($("#textID").val());
+        membership.answer(message);
+      });
+      $("#handshake").click(function(){
+        var message = JSON.parse($("#textID").val());
+        membership.handshake(message);
+      });
+
+      membership.on("launch", function(message){
+        $("#textID").val(JSON.stringify(message));
+      });
+      
+      membership.on("answer", function(message){
+        $("#textID").val(JSON.stringify(message));
+      });
+
+      n.on("receive", function(message){
+        $("#log").html( $("#log").html() + "received: " + message + "<br/>" );
+      });
+      
+    </script>
+  </body>
+</html>
